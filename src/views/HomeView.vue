@@ -1,18 +1,32 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <timer
+      ref="timer"
+      :end-date="date"
+  />
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+  import Timer from "@/components/Timer";
 
-export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
+  export default {
+    name: 'Home',
+
+    components: {
+      Timer,
+    },
+
+    data() {
+      return {
+        timerKey: 0,
+        date: new Date('December 17, 2022 03:24:07')
+      }
+    },
+
+    mounted() {
+      setTimeout(() => {
+        this.$refs.timer.destroy()
+        this.date = new Date('December 15, 2022 03:24:40')
+      },5000)
+    }
   }
-}
 </script>
