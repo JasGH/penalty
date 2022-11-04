@@ -18,15 +18,15 @@
     data() {
       return {
         timerKey: 0,
-        date: new Date('December 17, 2022 03:24:07')
+        date: Date.now() + 180000
       }
     },
 
     mounted() {
-      setTimeout(() => {
-        this.$refs.timer.destroy()
-        this.date = new Date('December 15, 2022 03:24:40')
-      },5000)
+      // setTimeout(() => {
+      //   this.$refs.timer.destroy()
+      //   this.date = new Date('December 15, 2022 03:24:40')
+      // },5000)
     }
   }
 </script>

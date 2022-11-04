@@ -16,7 +16,7 @@ export default {
   name: 'Timer',
   props: {
     endDate: {
-      type: Date // Date.parse(this.endDate)
+      type: [ Date , Number] // Date.parse(this.endDate)
     }
   },
 
@@ -32,10 +32,9 @@ export default {
 
   watch: {
     endDate: {
-      handler: function(newValue) {
+      handler: function() {
         this.destroy()
         this.setUpTimer()
-        console.log('newVal', newValue)
       },
       deep: true
     }
@@ -74,10 +73,6 @@ export default {
 
   mounted () {
     this.setUpTimer()
-  },
-
-
-
-
+  }
 }
 </script>
